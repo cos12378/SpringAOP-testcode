@@ -14,11 +14,13 @@ public class UserController {
     private UserService userService;
     @PostMapping("/get")
     public UserInfoRes getByUserInfo(@RequestBody UserInfoReq userInfoReq) {
+        System.out.println("Method: get");
         return userService.findByUserInfo(userInfoReq);
     }
 
     @PostMapping("/post")
     public UserInfoRes save(@RequestBody UserInfoReq userInfoReq) {
+        System.out.println("Method: post");
        return userService.save(userInfoReq);
     }
 

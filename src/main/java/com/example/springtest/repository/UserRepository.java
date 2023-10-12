@@ -15,5 +15,4 @@ public interface UserRepository
     @Query("SELECT u FROM User u WHERE u.id = :#{#user.id} AND u.name = :#{#user.name}")
     public User findByUserInfo(@Param("user") User user);
 
-
 }

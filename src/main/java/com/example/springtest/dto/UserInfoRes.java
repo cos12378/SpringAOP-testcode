@@ -11,6 +11,5 @@ public class UserInfoRes {
     private String name;
     private Long id;
 
-
 }
 

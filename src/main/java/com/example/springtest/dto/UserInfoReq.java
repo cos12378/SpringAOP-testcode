@@ -7,20 +7,20 @@ import lombok.Getter;
 @Getter
 public class UserInfoReq {
 
-    private String name;
     private Long id;
+    private String name;
 
     @Builder
-    public UserInfoReq(String name, Long id) {
-        this.name = name;
+    public UserInfoReq(Long id, String name) {
         this.id = id;
+        this.name = name;
     }
 
     public User toEntity() {
         return User
                 .builder()
-                .name(name)
                 .id(id)
+                .name(name)
                 .build();
     }
 }
