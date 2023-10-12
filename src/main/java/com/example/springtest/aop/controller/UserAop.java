@@ -54,7 +54,6 @@ public class UserAop {
     @AfterReturning(value = "cut()", returning = "obj")
     public void afterReturn(JoinPoint joinPoint, Object obj) {
 
-
         if (obj instanceof UserInfoRes) {
             UserInfoRes userInfoRes = (UserInfoRes) obj;
             User user = new User(userInfoRes.getId(), userInfoRes.getName());

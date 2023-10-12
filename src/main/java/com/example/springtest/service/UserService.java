@@ -13,8 +13,9 @@ public class UserService {
     @Autowired //레포지토리 초기화
     private UserRepository userRepository;
 
-    public UserInfoRes findByUserInfo(Long id, String name){
-        return userRepository.findByUserInfo(id, name);
+    public UserInfoRes findByUserInfo(UserInfoReq userInfoReq){
+        User user = userRepository.findByUserInfo(userInfoReq.toEntity());
+        return new UserInfoRes(user.getName(),user.getId());
     }
 
     public UserInfoRes save(UserInfoReq userInfoReq){

@@ -1,5 +1,6 @@
 package com.example.springtest.repository;
 
+import com.example.springtest.dto.UserInfoReq;
 import com.example.springtest.dto.UserInfoRes;
 import com.example.springtest.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,7 +12,8 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository
         extends JpaRepository<User,Long> {
 
-    @Query("SELECT u FROM User u WHERE u.id = :id AND u.name = :name")
-    public UserInfoRes findByUserInfo(@Param("id") Long id, @Param("name") String name);
+    @Query("SELECT u FROM User u WHERE u.id = :#{#user.id} AND u.name = :#{#user.name}")
+    public User findByUserInfo(@Param("user") User user);
+
 
 }

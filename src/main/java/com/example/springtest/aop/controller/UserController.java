@@ -12,12 +12,12 @@ public class UserController {
 
     @Autowired  //유저 서비스 초기화
     private UserService userService;
-    @GetMapping
-    public UserInfoRes getByUserInfo(@ModelAttribute UserInfoReq userInfoReq) {
-        return userService.findByUserInfo(userInfoReq.getId(), userInfoReq.getName());
+    @PostMapping("/get")
+    public UserInfoRes getByUserInfo(@RequestBody UserInfoReq userInfoReq) {
+        return userService.findByUserInfo(userInfoReq);
     }
 
-    @PostMapping
+    @PostMapping("/post")
     public UserInfoRes save(@RequestBody UserInfoReq userInfoReq) {
        return userService.save(userInfoReq);
     }
